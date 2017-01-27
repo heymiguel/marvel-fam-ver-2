@@ -34,6 +34,7 @@ class App extends Component {
           End range
           { this.state.endDate }.
         </p>
+        { /* ComicSelector > Character Selector > Output?*/ }
       </div>
     )
   }
@@ -50,3 +51,5 @@ export default App;
 // make another call to find those characters
 // API CALL to get the images related to those characters
 // output the character names and their corresponding images to the page. 
+
+// conditional rendering for the main page. 

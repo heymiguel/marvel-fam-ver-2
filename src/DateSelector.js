@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
-class ComicSelector extends Component {
+class DateSelector extends Component {
     constructor(props) {
         super(props);
         this.handleDateChange = this.handleDateChange.bind(this);
@@ -46,15 +46,7 @@ class ComicSelector extends Component {
         )
     }
 }
-export default ComicSelector;
+export default DateSelector;
 
 
-// refresher for the flow of your old application
-// take a date
-// proper format being: 2013-01-01,2013-01-02 ()
-// API CALL  return comics released on that date
-// if there is nothing on that day then expand the search to include the month. That normally does it. 
-// go through those comics and find a list of characters
-// make another call to find those characters
-// API CALL to get the images related to those characters
-// output the character names and their corresponding images to the page. 
+

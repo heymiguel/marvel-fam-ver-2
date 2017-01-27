@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header.js';
-import DateSelector from './DateSelector.js';
+import ComicSelector from './ComicSelector.js';
 
 class App extends Component {
   constructor(props) {
@@ -23,9 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header></Header>
-        <DateSelector selectDate={this.handleDateSelect}> </DateSelector>
+        <ComicSelector selectDate={ this.handleDateSelect }> </ComicSelector>
         <p>
-          {this.state.date}
+          { this.state.date }
         </p>
       </div>
     )

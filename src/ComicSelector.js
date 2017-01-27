@@ -3,10 +3,10 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
-class DateSelector extends Component {
+class ComicSelector extends Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
         this.onDateSelect = this.onDateSelect.bind(this);
         this.state = {
             startDate: moment(),
@@ -16,7 +16,7 @@ class DateSelector extends Component {
         };
     }
 
-    handleChange(date) {
+    handleDateChange(date) {
         // let convertedDate = date.format();
         // console.log(date.format().toString());
         this.setState({
@@ -29,16 +29,13 @@ class DateSelector extends Component {
     }
 
     render() {
-        // console.log(this.state.startDate);
-        // console.log(this.state.startDate._d);
-        // can use moment.js methods to pull data
         return (
             <div>
-                <DatePicker selected={this.state.startDate} onChange={this.handleChange}></DatePicker>
-                <button onClick={this.onDateSelect}>click to throw the date</button>
+              <DatePicker selected={ this.state.startDate } onChange={ this.handleDateChange }></DatePicker>
+              <button onClick={ this.onDateSelect }>click to throw the date</button>
             </div>
         )
     }
 }
-export default DateSelector;
+export default ComicSelector;
 

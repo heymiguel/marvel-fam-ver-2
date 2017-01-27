@@ -10,17 +10,26 @@ class ComicSelector extends Component {
         this.onDateSelect = this.onDateSelect.bind(this);
         this.state = {
             startDate: moment(),
+            // selectedDate: ""
             // have to start with a moment!!
             // then grab what you need
-            selectedDate: ""
+            selectedDate: {
+                start: "",
+                end: "",
+            }
         };
     }
 
     handleDateChange(date) {
-        // let convertedDate = date.format();
-        // console.log(date.format().toString());
+        let convertedDateStart = date.format("YYYY-MM-DD");
+        let convertedDateEnd = date.add(1, 'days').format("YYYY-MM-DD");
+        console.log(convertedDateEnd, convertedDateStart);
         this.setState({
-            selectedDate: date.format().toString()
+            startDate: date,
+            selectedDate: {
+                start: convertedDateStart,
+                end: convertedDateEnd
+            }
         })
     }
 
@@ -39,3 +48,13 @@ class ComicSelector extends Component {
 }
 export default ComicSelector;
 
+
+// refresher for the flow of your old application
+// take a date
+// proper format being: 2013-01-01,2013-01-02 ()
+// API CALL  return comics released on that date
+// if there is nothing on that day then expand the search to include the month. That normally does it. 
+// go through those comics and find a list of characters
+// make another call to find those characters
+// API CALL to get the images related to those characters
+// output the character names and their corresponding images to the page. 

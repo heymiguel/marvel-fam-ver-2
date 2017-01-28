@@ -35,7 +35,7 @@ class App extends Component {
           End range {this.state.endDate}.
         </p>
         <ComicSelector></ComicSelector>
-        { /* ComicSelector > Character Selector > Output?*/}
+        { /* ComicSelector contains Character Selector > Output?*/}
       </div>
     );
   }

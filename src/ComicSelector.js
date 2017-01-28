@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // css delcaration goes here
 import axios from 'axios';
+import moment from 'moment';
 
 class ComicSelector extends Component {
   constructor(props) {
@@ -8,19 +9,17 @@ class ComicSelector extends Component {
     this.getComics = this.getComics.bind(this);
     this.state = {
       comics: [],
+      characters: [],
     };
   }
 
   getComics() {
     // const marvelURL = 'https://gateway.marvel.com/v1/public/comics';
     // const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
-    axios.get(`https://gateway.marvel.com/v1/public/comics?dateRange=2013-01-01%2C2013-01-02&apikey=3bfdbc625fb1b18126abd87d3894d2d4`)
+    axios.get(`https://gateway.marvel.com/v1/public/comics?dateRange=1985-01-01%2C1985-01-28&apikey=3bfdbc625fb1b18126abd87d3894d2d4`)
     .then((res) => {
-      const incomingComics = res.data.results;
-      console.log(res);
-      this.setState({
-        comics: incomingComics,
-      });
+      const incomingComics = res.data.data.results;
+      this.filterCharacters(incomingComics);
     })
     .then(() => {
       console.log(this.state.comics);
@@ -29,6 +28,17 @@ class ComicSelector extends Component {
       console.log(error);
     });
     ;
+  }
+
+  filterCharacters(comics) {
+    let characters = [];
+    comics.forEach((comic) => {
+      let hasCharacter = comic.characters.available;
+      if (hasCharacter !== 0) {
+        characters.push(comic.characters.items[0].name);
+      }
+    });
+    console.log(characters);
   }
 
 // API CALL  return comics released on that date (on it)

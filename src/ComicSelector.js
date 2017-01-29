@@ -16,7 +16,15 @@ class ComicSelector extends Component {
   getComics() {
     // const marvelURL = 'https://gateway.marvel.com/v1/public/comics';
     // const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
-    axios.get(`https://gateway.marvel.com/v1/public/comics?dateRange=1985-01-01%2C1985-01-28&apikey=3bfdbc625fb1b18126abd87d3894d2d4`)
+    let startDate = "1985-01-01";
+    let endDate = "1985-01-30";
+    // axios.get(marvelURL, {
+    //   params: {
+    //     dateRange: decodeURI(encodeURI("1985-01-01,985-01-30")),
+    //     apiKey: myApi,
+    //   },
+    // })
+    axios.get(`https://gateway.marvel.com/v1/public/comics?dateRange=${startDate}%2C${endDate}&apikey=3bfdbc625fb1b18126abd87d3894d2d4`)
     .then((res) => {
       const incomingComics = res.data.data.results;
       this.filterCharacters(incomingComics);

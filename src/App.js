@@ -46,8 +46,8 @@ export default App;
 // refresher for the flow of your old application
 // take a date (done!)
 // proper format being: 2013-01-01,2013-01-02 (done!)
-// API CALL  return comics released on that date (on it)
-// if there is nothing on that day then expand the search to include the month. That normally does it.
+// API CALL  return comics released on that date (done!)
+// if there is nothing on that day then expand the search to include the month. That normally does it. (later..)
 // go through those comics and find a list of characters
 // make another call to find those characters
 // API CALL to get the images related to those characters

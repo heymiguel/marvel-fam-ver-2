@@ -12,10 +12,13 @@ class DisplayCharacters extends Component {
 
     render() {
         console.log( this.props.completeCharacters );
+
+        // ask Ryan Brunner why you can log props in the component but 1) cant use it in a loop 2) pass it into state
         return (
             <div>
+                <p>{this.props.completeCharacters}</p>`
                 <ul>
-                    {this.state.characterList.map(( character, index ) => {
+                    {this.props.completeCharacters.map(( character, index ) => {
                         return <li key={index}>
                             <p>{character.index.name}</p>
                             <p>{character.index.description}</p>

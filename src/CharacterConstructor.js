@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 // css delcaration goes here
 import axios from 'axios';
+import DisplayCharacters from './DisplayCharacters.js'
 
 class CharacterConstructor extends Component {
     constructor( props ) {
         super( props );
         this.getCharacterDetails = this.getCharacterDetails.bind( this );
-        this.completeCharacter = [];
+        this.state = {
+            completeCharacters: [],
+            charListReady: false
+        };
     }
 
     componentDidUpdate() {
-        console.log( this.props.characters );
+        console.log( this.state.completeCharacters );
     }
 
 
     getCharacterDetails() {
         const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
         const marvelURL = 'https://gateway.marvel.com:443/v1/public/characters?';
+        let charList = [];
         for ( let characterName of this.props.characters ) {
             axios.get( marvelURL, {
                 params: {
@@ -30,23 +35,24 @@ class CharacterConstructor extends Component {
                         description: res.data.data.results[ 0 ].description,
                         image: ""
                     };
-                    this.completeCharacter.push( character );
+                    charList.push( character );
                 })
                 .catch(( error ) => {
                     console.log( error );
                 })
         }
-        console.log( this.completeCharacter );
-    }
-
-    displayCharacters() {
-
+        this.setState( { completeCharacters: charList });
+        if ( this.state.completeCharacters !== [] ) {
+            this.setState( { charListReady: true });
+            console.log( 'ready!' );
+        }
     }
 
     render() {
         return (
             <div>
                 <button onClick={this.getCharacterDetails}>get character details</button>
+                <DisplayCharacters completeCharacters={this.state.completeCharacters}></DisplayCharacters>
             </div>
         );
     }

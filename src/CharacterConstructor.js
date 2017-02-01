@@ -8,8 +8,7 @@ class CharacterConstructor extends Component {
         super(props);
         this.getCharacterDetails = this.getCharacterDetails.bind(this);
         this.state = {
-            completeCharacters: [],
-            charListReady: false
+            completeCharacters: []
         };
     }
 
@@ -44,10 +43,6 @@ class CharacterConstructor extends Component {
         this.setState({
             completeCharacters: charList
         });
-    // if ( this.state.completeCharacters !== [] ) {
-    //     this.setState( { charListReady: true });
-    //     console.log( 'ready!' );
-    // }
     }
 
 

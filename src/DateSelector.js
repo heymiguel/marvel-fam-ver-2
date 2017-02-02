@@ -23,11 +23,10 @@ class DateSelector extends Component {
     handleDateChange(date) {
         let convertedDate = this.state.selectedDate;
         let convertedDateStart = date.format("YYYY-MM-DD");
-        let convertedDateEnd = date.add(1, 'days').format("YYYY-MM-DD");
+        let convertedDateEnd = date.add(20, 'days').format("YYYY-MM-DD");
         convertedDate.start = convertedDateStart;
         convertedDate.end = convertedDateEnd;
-        let rollBack = date.subtract(1, 'days');
-        //mutate to display current date
+        let rollBack = date.subtract(20, 'days'); //mutate to display current date
         this.setState({
             selectedDate: convertedDate,
             startDate: date

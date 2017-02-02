@@ -7,30 +7,34 @@ class DisplayCharacters extends Component {
     // }
 
     render() {
-        if ( this.props.showMe ) {
-            console.log( 'rendered' );
+        if (this.props.showMe) {
+            console.log('rendered');
             return (
                 <div>
-                    <ul>
-                        {this.props.completeCharacters.map(( character, index ) => {
-                            return (
-                                <li key={index}>
-                                    <p>
-                                        {character.name}
-                                    </p>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                  <ul>
+                    { this.props.completeCharacters.map((character, index) => {
+                          return (
+                              <li key={ index }>
+                                <p>
+                                  { character.name }
+                                </p>
+                                <p>
+                                  { character.description }
+                                </p>
+                                <img src={ character.image }></img>
+                              </li>
+                          )
+                      }) }
+                  </ul>
                 </div>
-            );
+                );
 
         } else {
             return (
                 <div>
-                    nope
+                  nope
                 </div>
-            );
+                );
         }
     }
 }

@@ -12,7 +12,7 @@ class ComicSelector extends Component {
         this.getCharacterDetails = this.getCharacterDetails.bind(this);
         this.state = {
             characters: [],
-            fullCharacter:[],
+            fullCharacter: [],
             showCharacterList: false
         };
     }
@@ -31,20 +31,19 @@ class ComicSelector extends Component {
         })
             .then((res) => {
                 const incomingComics = res.data.data.results;
-                // if there is nothing on that day then expand the search to include the month. That normally does it.
-                // you still need to expand this search.
+                console.log(incomingComics);
                 findTheseCharacters = this.filterCharacters(incomingComics);
-                this.setState({characters: findTheseCharacters});
+                this.setState({
+                    characters: findTheseCharacters
+                });
             })
-            .then(()=>{
+            .then(() => {
                 this.getCharacterDetails();
             })
-            .then(()=>{
+            .then(() => {
                 this.setState({
                     showCharacterList: true
                 });
-                
-                // console.log(this.state);
             })
             .catch(function(error) {
                 console.log(error);
@@ -52,44 +51,43 @@ class ComicSelector extends Component {
     }
 
     getCharacterDetails() {
-        
         // const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
         const myApi = 'aba7a41eec8c1077392a4631681a7b73';
         const marvelURL = 'https://gateway.marvel.com:443/v1/public/characters?';
+        const imgSize = "portrait_xlarge";
+        const imgType = ".jpg";
         let charList = this.state.characters;
         let newList = this.state.fullCharacter;
         console.log(charList);
-        for ( let characterName of charList) {
-            axios.get( marvelURL, {
+        for (let characterName of charList) {
+            axios.get(marvelURL, {
                 params: {
                     name: characterName,
                     apikey: myApi,
                 },
             })
-                .then(( res ) => {
-                    
+                .then((res) => {
                     let character = {
                         name: characterName,
-                        description: res.data.data.results[ 0 ].description,
-                        image: ""
+                        description: res.data.data.results[0].description,
+                        image: (res.data.data.results[0].thumbnail.path + "/" + imgSize + imgType)
                     };
-
-                    newList.push( character );
-                    // return charList;
+                    if (character.description === "") {
+                        character.description = "Marvel.com does not have a description for this character. A description may be hosted at the marvel Wikia."
+                    }
+                    ;
+                    newList.push(character);
                 })
-                .then(()=>{
-                    this.setState({fullCharacter: newList});
+                .then(() => {
+                    this.setState({
+                        fullCharacter: newList
+                    });
+                    console.log(this.state.fullCharacter);
                 })
-                .catch(( error ) => {
-                    console.log( error );
+                .catch((error) => {
+                    console.log(error);
                 })
         }
-        
-        // console.log(charList);
-        // this.setState( {
-        //     characterList: charList,
-        //     showCharacterList: true
-        // });
     }
 
     filterCharacters(comics) {
@@ -110,22 +108,18 @@ class ComicSelector extends Component {
     }
 
     render() {
-        
+
         const showChars = this.state.showCharacterList;
         console.log(this.state, showChars);
         let finalList = null;
-        if (showChars){
-            finalList = <DisplayCharacters showMe={true} completeCharacters={this.state.fullCharacter} ></DisplayCharacters>
-        } 
-        // else {
-        //     finalList = <DisplayCharacters showMe={false}></DisplayCharacters>
-        // }
+        if (showChars) {
+            finalList = <DisplayCharacters showMe={ true } completeCharacters={ this.state.fullCharacter }></DisplayCharacters>
+        }
         return (
             <div>
               <h3>Well met!</h3>
               <button onClick={ this.getComics }> grab me comics </button>
-              {finalList}
-              
+              { finalList }
             </div>
             );
     }

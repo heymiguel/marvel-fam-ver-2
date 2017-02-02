@@ -18,8 +18,8 @@ class ComicSelector extends Component {
     }
 
     getComics() {
-        let startDate = "1990-10-01";
-        let endDate = "1990-10-8";
+        let startDate = this.props.startDate;
+        let endDate = this.props.endDate
         const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
         const marvelURL = `https://gateway.marvel.com/v1/public/comics?dateRange=${ startDate }%2C${ endDate }`;
         let findTheseCharacters = this.state.characters;

@@ -26,14 +26,14 @@ class DateSelector extends Component {
         let convertedDateEnd = date.add( 1, 'days' ).format( "YYYY-MM-DD" );
         convertedDate.start = convertedDateStart;
         convertedDate.end = convertedDateEnd;
-        this.setState( { selectedDate: convertedDate });
+        this.setState( { selectedDate: convertedDate, startDate: date });
         this.props.selectDate( this.state.selectedDate );
     }
 
     render() {
         return (
             <div>
-                <DatePicker selected={this.state.startDate} onChange={this.handleDateChange}></DatePicker>
+                <DatePicker selected={this.state.startDate} showYearDropdown onChange={this.handleDateChange}></DatePicker>
             </div>
         )
     }

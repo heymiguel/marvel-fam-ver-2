@@ -8,7 +8,6 @@ class DateSelector extends Component {
     constructor( props ) {
         super( props );
         this.handleDateChange = this.handleDateChange.bind( this );
-        this.onDateSelect = this.onDateSelect.bind( this );
         this.state = {
             startDate: moment(),
             // selectedDate: ""
@@ -29,10 +28,6 @@ class DateSelector extends Component {
         convertedDate.end = convertedDateEnd;
         this.setState( { selectedDate: convertedDate });
         this.props.selectDate( this.state.selectedDate );
-    }
-
-    onDateSelect() {
-
     }
 
     render() {

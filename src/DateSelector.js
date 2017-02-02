@@ -5,10 +5,10 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class DateSelector extends Component {
-    constructor(props) {
-        super(props);
-        this.handleDateChange = this.handleDateChange.bind(this);
-        this.onDateSelect = this.onDateSelect.bind(this);
+    constructor( props ) {
+        super( props );
+        this.handleDateChange = this.handleDateChange.bind( this );
+        this.onDateSelect = this.onDateSelect.bind( this );
         this.state = {
             startDate: moment(),
             // selectedDate: ""
@@ -21,28 +21,24 @@ class DateSelector extends Component {
         };
     }
 
-    handleDateChange(date) {
-        let convertedDateStart = date.format("YYYY-MM-DD");
-        let convertedDateEnd = date.add(1, 'days').format("YYYY-MM-DD");
-        console.log(convertedDateEnd, convertedDateStart);
-        this.setState({
-            startDate: date,
-            selectedDate: {
-                start: convertedDateStart,
-                end: convertedDateEnd
-            }
-        })
+    handleDateChange( date ) {
+        let convertedDate = this.state.selectedDate;
+        let convertedDateStart = date.format( "YYYY-MM-DD" );
+        let convertedDateEnd = date.add( 1, 'days' ).format( "YYYY-MM-DD" );
+        convertedDate.start = convertedDateStart;
+        convertedDate.end = convertedDateEnd;
+        this.setState( { selectedDate: convertedDate });
+        this.props.selectDate( this.state.selectedDate );
     }
 
     onDateSelect() {
-        this.props.selectDate(this.state.selectedDate);
+
     }
 
     render() {
         return (
             <div>
                 <DatePicker selected={this.state.startDate} onChange={this.handleDateChange}></DatePicker>
-                <button onClick={this.onDateSelect}>click to throw the date</button>
             </div>
         )
     }

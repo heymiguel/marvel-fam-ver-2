@@ -29,7 +29,12 @@ class DisplayCharacters extends Component {
                         })}
                     </ul>
                     <footer>
-                        <div className="legal-and-credits">legal and credits</div>
+                        <div className="legal-and-credits">
+                            <p> re-built and re-designed with geek-sweat by <a href="http://www.twitter.com/@heymiguel">this true believer</a></p>
+                            <p className="copyright">
+                                all characters, their photos and respective descriptions used on this site property of Marvel.
+                            </p>
+                        </div>
                     </footer>
                 </div>
             );

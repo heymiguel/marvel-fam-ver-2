@@ -11,17 +11,17 @@ class DisplayCharacters extends Component {
             console.log('rendered');
             return (
                 <div>
-                  <ul>
+                  <ul className="character-holder" >
                     { this.props.completeCharacters.map((character, index) => {
                           return (
-                              <li key={ index }>
+                              <li className="character" key={ index }>
                                 <p>
                                   { character.name }
                                 </p>
                                 <p>
                                   { character.description }
                                 </p>
-                                <img src={ character.image }></img>
+                                <img src={ character.image } alt=""></img>
                               </li>
                           )
                       }) }

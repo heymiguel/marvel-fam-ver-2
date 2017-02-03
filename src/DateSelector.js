@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
-// css declaration goes here
+import DateSection from './DateSection.css';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class DateSelector extends Component {
-    constructor(props) {
-        super(props);
-        this.handleDateChange = this.handleDateChange.bind(this);
+    constructor( props ) {
+        super( props );
+        this.handleDateChange = this.handleDateChange.bind( this );
         this.state = {
             startDate: moment(),
             // selectedDate: ""
@@ -16,33 +16,32 @@ class DateSelector extends Component {
             selectedDate: {
                 start: moment(),
                 end: "",
-            }
+            },
         };
     }
 
-    handleDateChange(date) {
+    handleDateChange( date ) {
         let convertedDate = this.state.selectedDate;
-        let convertedDateStart = date.format("YYYY-MM-DD");
-        let convertedDateEnd = date.add(20, 'days').format("YYYY-MM-DD");
+        let convertedDateStart = date.format( "YYYY-MM-DD" );
+        let convertedDateEnd = date.add( 20, 'days' ).format( "YYYY-MM-DD" );
         convertedDate.start = convertedDateStart;
         convertedDate.end = convertedDateEnd;
-        let rollBack = date.subtract(20, 'days'); //mutate to display current date
-        this.setState({
+        let rollBack = date.subtract( 20, 'days' ); // mutate to display current date
+        this.setState( {
             selectedDate: convertedDate,
-            startDate: date
+            startDate: date,
         });
-        this.props.selectDate(this.state.selectedDate);
+        this.props.selectDate( this.state.selectedDate );
     }
 
     render() {
         return (
-            <div>
-              <DatePicker selected={ this.state.startDate } onChange={ this.handleDateChange } showYearDropdown></DatePicker>
+            <div className="date-holder">
+                <DatePicker
+                    className="date-select" selected={this.state.startDate} onChange={this.handleDateChange} showYearDropdown></DatePicker>
             </div>
-        )
+        );
     }
 }
 export default DateSelector;
-
-
 

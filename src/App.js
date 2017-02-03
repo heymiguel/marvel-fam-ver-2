@@ -42,10 +42,7 @@ class App extends Component {
         <ComicSelector startDate={this.state.startDate} endDate={this.state.endDate} ></ComicSelector>
       );
       theTagline = (
-        <div>
-          <p>
-            {this.state.startDate}
-          </p>
+        <div className="tagline">
           <p>
             "...A day unlike any other."
           </p>
@@ -53,7 +50,7 @@ class App extends Component {
 
       );
     } else {
-      theSelector = <p> pick a date and hit that button!</p>;
+      theSelector = null;
       theTagline = null;
     }
     return (
@@ -62,7 +59,6 @@ class App extends Component {
         <DateSelector selectDate={this.handleDateSelect}></DateSelector>
         {theTagline}
         {theSelector}
-
       </div>
     );
   }

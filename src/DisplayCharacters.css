@@ -1,0 +1,40 @@
+.display-characters {}
+
+.character-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.character {
+  flex-grow: 2;
+  display: flex;
+  max-width: 45%;
+  margin: 5px 5px 10px 5px;
+  text-align: left;
+}
+
+.name {
+  font-family: Chivo;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  background: firebrick;
+  color: white;
+  padding: 10px 20px;
+}
+
+.description {
+  font-size: .8rem;
+  padding: 5px 10px 30px 20px;
+}
+
+.character-text {
+  background: floralwhite;
+}
+
+img {
+  max-height: 150px;
+  height: auto;
+}

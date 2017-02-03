@@ -1,6 +1,6 @@
 .App {
   max-width: 800px;
-  height: 95vh;
+  /*height: 95vh;*/
   margin: 0 auto;
   background: url('./squairy_light_2X.png');
 }
@@ -15,18 +15,23 @@
 .App-header h2 {
   padding: 10px 25px;
   font-family: 'Chivo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: yellow;
+  background: firebrick;
   font-size: 2rem;
   line-height: 3rem;
   margin-bottom: 40%;
+  color: white;
 }
 
 .App-header p {
-  padding: 25px;
+  padding: 20px;
   font-size: .85rem;
-  width: 450px;
+  max-width: 450px;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, .8);
+}
+
+.tagline {
+  text-align: center;
 }
 
 .legal-and-credits {

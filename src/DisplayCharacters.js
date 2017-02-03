@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// css delcaration goes here
+import './DisplayCharacters.css';
 
 class DisplayCharacters extends Component {
     // constructor( props ) {
@@ -7,34 +7,39 @@ class DisplayCharacters extends Component {
     // }
 
     render() {
-        if (this.props.showMe) {
-            console.log('rendered');
+        if ( this.props.showMe ) {
+            console.log( 'rendered' );
             return (
-                <div>
-                  <ul className="character-holder" >
-                    { this.props.completeCharacters.map((character, index) => {
-                          return (
-                              <li className="character" key={ index }>
-                                <p>
-                                  { character.name }
-                                </p>
-                                <p>
-                                  { character.description }
-                                </p>
-                                <img src={ character.image } alt=""></img>
-                              </li>
-                          )
-                      }) }
-                  </ul>
+                <div className="display-characters">
+                    <ul className="character-holder" >
+                        {this.props.completeCharacters.map(( character, index ) => {
+                            return (
+                                <li className="character" key={index}>
+                                    <img src={character.image} alt=""></img>
+                                    <div className="character-text">
+                                        <p className="name">
+                                            {character.name}
+                                        </p>
+                                        <p className="description">
+                                            {character.description}
+                                        </p>
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    <footer>
+                        <div className="legal-and-credits">legal and credits</div>
+                    </footer>
                 </div>
-                );
+            );
 
         } else {
             return (
                 <div>
-                  nope
+                    nope
                 </div>
-                );
+            );
         }
     }
 }

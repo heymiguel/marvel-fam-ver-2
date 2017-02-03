@@ -1,0 +1,15 @@
+.comic-selector {
+  text-align: center;
+}
+
+.comic-selector button {
+  padding: 5px 20px;
+  border-radius: 10px;
+  background: red;
+  border: 1px solid yellow;
+  font-size: 2.5rem;
+  color: ghostwhite;
+  text-transform: uppercase;
+  font-family: 'Bangers', serif;
+  margin-bottom: 30px;
+}

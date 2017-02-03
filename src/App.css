@@ -8,19 +8,25 @@
 .App-header {
   background: url('./The_Marvel_Universe.png') no-repeat;
   background-size: cover;
-  background-position: center -43px;
+  background-position: center top;
   min-height: 400px;
 }
 
 .App-header h2 {
-  padding: 25px;
+  padding: 10px 25px;
   font-family: 'Chivo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: yellow;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-bottom: 40%;
 }
 
 .App-header p {
   padding: 25px;
-  max-width: 50%;
   font-size: .85rem;
+  width: 450px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, .8);
 }
 
 .legal-and-credits {

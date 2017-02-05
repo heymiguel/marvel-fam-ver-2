@@ -4,13 +4,21 @@ import './DisplayCharacters.css';
 class DisplayCharacters extends Component {
     // constructor( props ) {
     //     super( props );
+
     // }
+
+    componentDidUpdate( prevProps, prevState ) {
+        window.scrollTo( 0, 500 )
+    }
+
+
 
     render() {
         if ( this.props.showMe ) {
             console.log( 'rendered' );
             return (
                 <div className="display-characters">
+                    <h3>Amazing! You could be related to:</h3>
                     <ul className="character-holder" >
                         {this.props.completeCharacters.map(( character, index ) => {
                             return (

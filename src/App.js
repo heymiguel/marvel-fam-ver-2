@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import theMarvelUniverse from './The_Marvel_Universe.png';
 import Header from './Header.js';
 import DateSelector from './DateSelector.js';
 import ComicSelector from './ComicSelector.js';
@@ -56,6 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header> </Header>
+        <p className="instructions">Enter your birthday:</p>
         <DateSelector selectDate={this.handleDateSelect}></DateSelector>
         {theTagline}
         {theSelector}

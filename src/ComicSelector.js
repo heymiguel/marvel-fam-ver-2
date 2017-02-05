@@ -26,6 +26,7 @@ class ComicSelector extends Component {
         axios.get( marvelURL, {
             params: {
                 apikey: myApi,
+                limit: 7,
             },
         })
             .then(( res ) => {
@@ -63,6 +64,7 @@ class ComicSelector extends Component {
                 params: {
                     name: characterName,
                     apikey: myApi,
+                    limit: 7,
                 },
             })
                 .then(( res ) => {

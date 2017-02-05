@@ -1,8 +1,13 @@
 .App {
   max-width: 800px;
-  /*height: 95vh;*/
   margin: 0 auto;
   background: url('./squairy_light_2X.png');
+}
+
+.App .instructions {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.25rem;
 }
 
 .App-header {
@@ -10,6 +15,7 @@
   background-size: cover;
   background-position: center top;
   min-height: 400px;
+  position: relative;
 }
 
 .App-header h2 {
@@ -22,6 +28,19 @@
   color: white;
 }
 
+.App-header strong {
+  font-weight: 400;
+}
+
+.App-header img {
+  display: inline;
+  width: auto;
+  height: 50px;
+  position: absolute;
+  top: 8px;
+  right: 6px;
+}
+
 .App-header p {
   padding: 20px;
   font-size: .85rem;
@@ -32,6 +51,7 @@
 
 .tagline {
   text-align: center;
+  margin: 10px 0;
 }
 
 .legal-and-credits {

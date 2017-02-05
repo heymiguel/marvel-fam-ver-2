@@ -1,10 +1,19 @@
-.display-characters {}
+.display-characters h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
 
 .character-holder {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.character-holder:after {
+  content: "";
+  flex: auto;
+  max-width: 45%;
 }
 
 .character {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
-import './DateSection.css';
+import './DateSelector.css';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -38,7 +38,7 @@ class DateSelector extends Component {
         return (
             <div className="date-holder">
                 <DatePicker
-                    className="date-select" selected={this.state.startDate} onChange={this.handleDateChange} showYearDropdown></DatePicker>
+                    className="date-select" selected={this.state.startDate} onChange={this.handleDateChange} showYearDropdown disabledKeyboardNavigation></DatePicker>
             </div>
         );
     }

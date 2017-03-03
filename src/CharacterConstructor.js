@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// css delcaration goes here
 import axios from 'axios';
-import DisplayCharacters from './DisplayCharacters.js'
+import DisplayCharacters from './DisplayCharacters.js';
+import config from './config.js';
 
 class CharacterConstructor extends Component {
     constructor(props) {

@@ -64,4 +64,12 @@ footer {
     font-size: 1.1rem;
     line-height: auto;
   }
+  .App-header img {
+    height: 25px;
+    top: 15px;
+  }
+  .App-header h2 {
+    padding: 5px 15px;
+    font-size: 1.2rem;
+  }
 }

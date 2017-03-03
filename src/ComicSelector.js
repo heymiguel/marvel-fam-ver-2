@@ -32,7 +32,6 @@ class ComicSelector extends Component {
         })
             .then((res) => {
                 const incomingComics = res.data.data.results;
-                console.log(incomingComics);
                 findTheseCharacters = this.filterCharacters(incomingComics);
                 this.setState({
                     characters: findTheseCharacters
@@ -58,7 +57,6 @@ class ComicSelector extends Component {
         const imgType = ".jpg";
         let charList = this.state.characters;
         let newList = this.state.fullCharacter;
-        console.log(charList);
         for (let characterName of charList) {
             axios.get(marvelURL, {
                 params: {
@@ -83,7 +81,6 @@ class ComicSelector extends Component {
                     this.setState({
                         fullCharacter: newList
                     });
-                    console.log(this.state.fullCharacter);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -104,15 +101,12 @@ class ComicSelector extends Component {
             filteredCharacters.add(character);
         })
         filteredCharacters = Array.from(filteredCharacters);
-        console.log(filteredCharacters);
         return filteredCharacters;
     }
 
     render() {
 
         const showChars = this.state.showCharacterList;
-        console.log(this.state, showChars);
-        console.log(keys);
         let finalList = null;
         if (showChars) {
             finalList = <DisplayCharacters showMe={ true } completeCharacters={ this.state.fullCharacter }></DisplayCharacters>

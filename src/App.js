@@ -5,9 +5,9 @@ import DateSelector from './DateSelector.js';
 import ComicSelector from './ComicSelector.js';
 
 class App extends Component {
-  constructor( props ) {
-    super( props );
-    this.handleDateSelect = this.handleDateSelect.bind( this );
+  constructor(props) {
+    super(props);
+    this.handleDateSelect = this.handleDateSelect.bind(this);
     this.state = {
       startDate: "",
       endDate: "",
@@ -15,19 +15,19 @@ class App extends Component {
     };
   }
 
-  handleDateSelect( newDate ) {
-    this.setState( {
+  handleDateSelect(newDate) {
+    this.setState({
       startDate: newDate.start,
       endDate: newDate.end,
     });
     this.showMe();
-    console.log( this.state );
+
   }
 
   showMe() {
     let showIt = this.state.showSelector;
     showIt = true;
-    this.setState( {
+    this.setState({
       showSelector: showIt,
     });
   }
@@ -35,10 +35,10 @@ class App extends Component {
   render() {
     let theSelector = null;
     let theTagline = null;
-    console.log( this.state );
-    if ( this.state.showSelector ) {
+
+    if (this.state.showSelector) {
       theSelector = (
-        <ComicSelector startDate={this.state.startDate} endDate={this.state.endDate} ></ComicSelector>
+        <ComicSelector startDate={ this.state.startDate } endDate={ this.state.endDate }></ComicSelector>
       );
       theTagline = (
         <div className="tagline">
@@ -56,11 +56,11 @@ class App extends Component {
       <div className="App">
         <Header> </Header>
         <p className="instructions">Enter your birthday:</p>
-        <DateSelector selectDate={this.handleDateSelect}></DateSelector>
-        {theTagline}
-        {theSelector}
+        <DateSelector selectDate={ this.handleDateSelect }></DateSelector>
+        { theTagline }
+        { theSelector }
       </div>
-    );
+      );
   }
 }
 

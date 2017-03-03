@@ -12,11 +12,6 @@ class CharacterConstructor extends Component {
         };
     }
 
-    componentDidUpdate() {
-        console.log(this.state.completeCharacters);
-    }
-
-
     getCharacterDetails() {
         const myApi = '3bfdbc625fb1b18126abd87d3894d2d4';
         const marvelURL = 'https://gateway.marvel.com:443/v1/public/characters?';

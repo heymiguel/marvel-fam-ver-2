@@ -54,3 +54,14 @@ body {
 footer {
   background: lightskyblue;
 }
+
+@media only screen and (max-device-width: 767px) {
+  .character {
+    flex-grow: 1;
+    max-width: 95%;
+  }
+  .display-characters h3 {
+    font-size: 1.1rem;
+    line-height: auto;
+  }
+}
